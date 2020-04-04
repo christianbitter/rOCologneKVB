@@ -1,0 +1,13 @@
+Package: rOCologneKVB
+Type: Package
+Title: Retrieves the KVB-provided open data
+Version: 0.1.0
+Author: Christian.Bitter@gmail.com
+Maintainer: The package maintainer <Christian.Bitter@gmail.com>
+Description: TODO
+License: What license is it under?
+Encoding: UTF-8
+LazyData: true
+Requires: httr, jsonlite, dplyr
+Suggests: 
+    testthat
