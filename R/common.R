@@ -26,3 +26,15 @@ base_request <- function(url, ...) {
 
   return(json_content);
 }
+
+extract_geom <- function(data_df) {
+
+  coords  <- data_df$geometry$coordinates;
+  coords  <- unlist(coords);
+  coords_m<- matrix(data = coords, ncol = 2, byrow = T);
+  data_df$x <- coords_m[, 1];
+  data_df$y <- coords_m[, 2];
+  data_df$geom_type <- data_df$geometry$type;
+
+  return(data_df);
+}

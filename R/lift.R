@@ -13,12 +13,8 @@ lift <- function() {
 
   # now into a spatial structure
   data_df <- json_content$features;
-  coords  <- data_df$geometry$coordinates;
-  coords  <- unlist(coords);
-  coords_m<- matrix(data = coords, ncol = 2, byrow = T);
-  data_df$x <- coords_m[, 1];
-  data_df$y <- coords_m[, 2];
-  data_df$geom_type <- data_df$geometry$type;
+  data_df <- extract_geom(data_df);
+
   data_df$Kennung <- data_df$properties$Kennung;
   data_df$Bezeichnung <- data_df$properties$Bezeichnung;
   data_df$Haltestellenbereich <- data_df$properties$Haltestellenbereich;
@@ -38,7 +34,7 @@ lift <- function() {
 #'@author christian bitter
 #'@name lift_incident
 #'@title KVB - Lift
-#'@description returns the lift information from the KVB Open Data Portal
+#'@description returns the lift incident information from the KVB Open Data Portal
 #'@return an sf object of the provided data (EPSG 4326).
 #'@examples
 #'lift_incident_sf <- lift_incident()
@@ -47,13 +43,9 @@ lift_incident <- function(){
   url <- "https://data.webservice-kvb.koeln/service/opendata/aufzugsstoerung/json";
 
   json_content <- base_request(url = url);
-  data_df      <- json_content$features;
-  coords  <- data_df$geometry$coordinates;
-  coords  <- unlist(coords);
-  coords_m<- matrix(data = coords, ncol = 2, byrow = T);
-  data_df$x <- coords_m[, 1];
-  data_df$y <- coords_m[, 2];
-  data_df$geom_type <- data_df$geometry$type;
+  data_df <- json_content$features;
+  data_df <- extract_geom(data_df);
+
   data_df$Kennung <- data_df$properties$Kennung;
   data_df$Bezeichnung <- data_df$properties$Bezeichnung;
   data_df$Haltestellenbereich <- data_df$properties$Haltestellenbereich;
