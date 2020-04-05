@@ -1,10 +1,13 @@
 Package: rOCologneKVB
 Type: Package
 Title: Retrieves the KVB-provided open data
-Version: 0.1.0
+Version: 0.1.2
 Author: Christian.Bitter@gmail.com
 Maintainer: The package maintainer <Christian.Bitter@gmail.com>
-Description: TODO
+Description: The package provides access to different open data sets related to
+    the city of Cologne. This includes data provided by the KVB, i.e. the public
+    transport services company of Cologne. Which thankfully publishes data on
+    the availability of escalators and lifts close to public transport stations.
 License: What license is it under?
 Encoding: UTF-8
 LazyData: true

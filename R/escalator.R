@@ -1,13 +1,13 @@
 #'@author christian bitter
-#'@name lift
-#'@title KVB - Lift
-#'@description returns the lift information from the KVB Open Data Portal
+#'@name escalator
+#'@title KVB - Escalator
+#'@description returns the escalator information from the KVB Open Data Portal
 #'@return an sf object of the provided data (EPSG 4326).
 #'@examples
-#'lift_sf <- lift()
+#'escalator_sf <- escalator()
 #'@export
-lift <- function() {
-  url <- "https://data.webservice-kvb.koeln/service/opendata/aufzuege/json";
+escalator <- function(){
+  url <- "https://data.webservice-kvb.koeln/service/opendata/fahrtreppen/json";
 
   json_content <- base_request(url = url);
 
@@ -27,17 +27,19 @@ lift <- function() {
 }
 
 #'@author christian bitter
-#'@name lift_incident
-#'@title KVB - Lift
-#'@description returns the lift incident information from the KVB Open Data Portal
+#'@name escalator
+#'@title KVB - Escalator
+#'@description returns the escalator incident information from the KVB Open Data Portal
 #'@return an sf object of the provided data (EPSG 4326).
 #'@examples
-#'lift_incident_sf <- lift_incident()
+#'escalator_incident_sf <- escalator_incident()
 #'@export
-lift_incident <- function(){
-  url <- "https://data.webservice-kvb.koeln/service/opendata/aufzugsstoerung/json";
+escalator_incident <- function(){
+  url <- "https://data.webservice-kvb.koeln/service/opendata/fahrtreppenstoerung/json";
 
   json_content <- base_request(url = url);
+
+  # now into a spatial structure
   data_df <- json_content$features;
   data_df <- extract_geom(data_df);
   data_df <- extract_prop(data_df);

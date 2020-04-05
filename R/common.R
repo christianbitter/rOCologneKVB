@@ -28,6 +28,9 @@ base_request <- function(url, ...) {
 }
 
 extract_geom <- function(data_df) {
+  if (missing(data_df)) stop("data missing");
+  if (nrow(data_df) < 1) stop("No data");
+  if (!("geometry" %in% names(data_df))) stop("no geometry attribute in data");
 
   coords  <- data_df$geometry$coordinates;
   coords  <- unlist(coords);
@@ -36,5 +39,19 @@ extract_geom <- function(data_df) {
   data_df$y <- coords_m[, 2];
   data_df$geom_type <- data_df$geometry$type;
 
+  data_df$geometry <- NULL;
+
+  return(data_df);
+}
+
+extract_prop <- function(data_df) {
+  if (missing(data_df)) stop("data missing");
+  if (nrow(data_df) < 1) stop("No data");
+  if (!("properties" %in% names(data_df))) stop("no properties attribute in data");
+
+  ni                 <- names(data_df$properties);
+  di                 <- data.frame(data_df$properties[1:length(ni)]);
+  data_df            <- cbind(data_df, di);
+  data_df$properties <- NULL;
   return(data_df);
 }
