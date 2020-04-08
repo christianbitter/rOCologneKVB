@@ -1,7 +1,7 @@
 Package: rOCologneKVB
 Type: Package
 Title: Retrieves the KVB-provided open data
-Version: 0.1.2
+Version: 0.1.5
 Author: Christian.Bitter@gmail.com
 Maintainer: The package maintainer <Christian.Bitter@gmail.com>
 Description: The package provides access to different open data sets related to

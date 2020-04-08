@@ -1,70 +1,14 @@
 # https://kvb.koeln/service/open_data.html
 # Ansprechpartner  (XML - View)
-#
-# JSON-Datei: https://data.webservice-kvb.koeln/service/opendata/ansprechpartner/json
-#
-# CSV-Datei: https://data.webservice-kvb.koeln/service/opendata/ansprechpartner/csv
-#
-#
-#
-# Aufzüge (XML - View) - EPSG:4326 (Geodezimal)*
-#
-#   JSON-Datei: https://data.webservice-kvb.koeln/service/opendata/aufzuege/json
-#
-# CSV-Datei: https://data.webservice-kvb.koeln/service/opendata/aufzuege/csv
-#
-#
-#
-# Aufzugstörungen (XML - View) - EPSG:4326 (Geodezimal)*
-#
-#   JSON-Datei: https://data.webservice-kvb.koeln/service/opendata/aufzugsstoerung/json
-#
-# CSV-Datei: hhttps://data.webservice-kvb.koeln/service/opendata/aufzugsstoerung/csv
-#
-#
-#
-# Fahrtreppen (XML - View)- EPSG:4326 (Geodezimal)*
-#
-#   JSON-Datei: https://data.webservice-kvb.koeln/service/opendata/fahrtreppen/json
-#
-# CSV-Datei: https://data.webservice-kvb.koeln/service/opendata/fahrtreppen/csv
-#
-#
-#
-# Fahrtreppenstörungen (XML - View) - EPSG:4326 (Geodezimal)*
-#
-#   JSON-Datei: https://data.webservice-kvb.koeln/service/opendata/fahrtreppenstoerung/json
-#
-# CSV-Datei: https://data.webservice-kvb.koeln/service/opendata/fahrtreppenstoerung/csv
-#
-#
-#
-# Haltestellen (XML - View) - EPSG:4326 (Geodezimal)*
-#
-#   JSON-Datei: https://data.webservice-kvb.koeln/service/opendata/haltestellen/json
-#
-# CSV-Datei: https://data.webservice-kvb.koeln/service/opendata/haltestellen/csv
-#
-#
-#
-# Haltestellenbereiche (XML - View) - EPSG:4326 (Geodezimal)*
-#
-#   JSON-Datei: https://data.webservice-kvb.koeln/service/opendata/haltestellenbereiche/json
-#
-# CSV-Datei: https://data.webservice-kvb.koeln/service/opendata/haltestellenbereiche/csv
-#
-#
-#
-# Vertriebsstellen (XML - View) - EPSG:4326 (Geodezimal)*
-#
-#   JSON-Datei: https://data.webservice-kvb.koeln/service/opendata/verkaufsorte/json
-#
-# CSV-Datei: https://data.webservice-kvb.koeln/service/opendata/verkaufsorte/csv
-#
-#
-#
-# Haltestellenbereich mit DFI (XML - View)
-#
-# JSON-Datei: https://data.webservice-kvb.koeln/service/opendata/dfi/json
-#
-# CSV-Datei: https://data.webservice-kvb.koeln/service/opendata/dfi/csv
+
+
+Entity            Covered Comment  Endpoint
+ContactPerson                         https://data.webservice-kvb.koeln/service/opendata/ansprechpartner/json
+Lift                  x       -       https://data.webservice-kvb.koeln/service/opendata/ansprechpartner/json
+Lift Incident         x       -       https://data.webservice-kvb.koeln/service/opendata/aufzugsstoerung/json
+Escalator             x       -       https://data.webservice-kvb.koeln/service/opendata/fahrtreppen/json
+Escalator Incident    x       -       https://data.webservice-kvb.koeln/service/opendata/fahrtreppenstoerung/json
+Stop                  x       -       https://data.webservice-kvb.koeln/service/opendata/haltestellen/json
+Stop Area             -       -       https://data.webservice-kvb.koeln/service/opendata/haltestellenbereiche/json
+Stop Area with DFI    -       -       https://data.webservice-kvb.koeln/service/opendata/dfi/json
+Service Point         x       -       https://data.webservice-kvb.koeln/service/opendata/verkaufsorte/json
