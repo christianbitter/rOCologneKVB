@@ -12,3 +12,11 @@ Stop                  x       -       https://data.webservice-kvb.koeln/service/
 Stop Area             -       -       https://data.webservice-kvb.koeln/service/opendata/haltestellenbereiche/json
 Stop Area with DFI    -       -       https://data.webservice-kvb.koeln/service/opendata/dfi/json
 Service Point         x       -       https://data.webservice-kvb.koeln/service/opendata/verkaufsorte/json
+
+NextBike
+
+Bike Rental Stations
+http://api.nextbike.net/maps/nextbike-official.xml?city=14
+
+Bike Positions
+http://api.nextbike.net/maps/nextbike-live.xml?city=14

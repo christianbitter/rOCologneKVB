@@ -55,3 +55,15 @@ extract_prop <- function(data_df) {
   data_df$properties <- NULL;
   return(data_df);
 }
+
+#'@title Common Routines
+#'@name cologne
+#'@description returns the shape file of the boundary of the City of Cologne
+#'@return sf object representing the City's boundary.
+#'@author Christian Bitter
+#'@export
+cologne <- function(){
+  a_fp <- system.file("data/Cologne_-_Boundary/Cologne_-_Boundary.shp", package = "rOCologneKVB");
+  a_sf <- sf::st_read(a_fp);
+  return(a_sf);
+}
