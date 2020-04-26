@@ -1,10 +1,18 @@
-base_request <- function(url, ...) {
+#'@name base_request
+#'@title Common Routines
+#'@author christian bitter
+#'@param url url to call
+#'@param rq_type type of request (json, or xml)
+base_request <- function(url, rq_type = c("json", "xml"), ...) {
+
+  if (length(rq_type) != 1) stop("base_request - no rq type selected.");
 
   verbose <- F;
   execute <- T;
 
   .args  <- list(...);
   .nargs <- names(.args);
+  return_value <- NULL;
 
   if ("verbose" %in% .nargs) verbose <- .args[["verbose"]];
   if ("execute" %in% .nargs) execute <- .args[["execute"]];
@@ -17,29 +25,39 @@ base_request <- function(url, ...) {
     r <- httr::GET(url = url);
 
     if (httr::status_code(r) != 200) {
-      stop(sprintf("lift - failed with\r\n%s", str(httr::http_status(r))));
+      stop(sprintf("base_request - failed with\r\n%s", str(httr::http_status(r))));
     }
 
     content <- httr::content(r, encoding = "UTF-8", as = "text");
-    json_content <- jsonlite::fromJSON(content);
+    if (rq_type == "json") {
+      return_value <- jsonlite::fromJSON(content);
+    } else {
+      stop("base_request - other request type than json not implemented.");
+    }
   }
 
-  return(json_content);
+  return(return_value);
 }
 
-extract_geom <- function(data_df, pull_from_geometry = T) {
+extract_geom <- function(data_df, pull_from_geometry = T, geom_type = "point") {
   if (missing(data_df)) stop("data missing");
   if (nrow(data_df) < 1) stop("No data");
 
   if (pull_from_geometry) {
     if (!("geometry" %in% names(data_df))) stop("no geometry attribute in data");
 
-    coords   <- data_df$geometry$coordinates;
-    coords   <- unlist(coords);
-    coords_m <- matrix(data = coords, ncol = 2, byrow = T);
-    data_df$x <- coords_m[, 1];
-    data_df$y <- coords_m[, 2];
-    data_df$geom_type <- data_df$geometry$type;
+    if (geom_type == "point") {
+      coords   <- data_df$geometry$coordinates;
+      coords   <- unlist(coords);
+      coords_m <- matrix(data = coords, ncol = 2, byrow = T);
+      data_df$x <- coords_m[, 1];
+      data_df$y <- coords_m[, 2];
+      data_df$geom_type <- data_df$geometry$type;
+    } else if (geom_type == "path") {
+
+    } else {
+      stop("extract_geom - unknown geom_type");
+    }
 
   } else {
     data_df$x <- data_df$geometry$x;

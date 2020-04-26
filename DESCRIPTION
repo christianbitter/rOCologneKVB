@@ -11,6 +11,6 @@ Description: The package provides access to different open data sets related to
 License: What license is it under?
 Encoding: UTF-8
 LazyData: true
-Requires: httr, jsonlite, dplyr
+Requires: httr, jsonlite, dplyr, xml2
 Suggests: 
     testthat
