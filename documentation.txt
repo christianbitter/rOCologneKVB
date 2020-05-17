@@ -13,7 +13,7 @@ Stop Area             -       -       https://data.webservice-kvb.koeln/service/
 Stop Area with DFI    -       -       https://data.webservice-kvb.koeln/service/opendata/dfi/json
 Service Point         x       -       https://data.webservice-kvb.koeln/service/opendata/verkaufsorte/json
 car park occupancy    x       -       http://www.stadt-koeln.de/externe-dienste/open-data/parking-ts.php
-NextBike - Position   -       -       http://api.nextbike.net/maps/nextbike-live.xml?city=14
+NextBike - Position   x       -       http://api.nextbike.net/maps/nextbike-live.xml?city=14
 NextBike - Stations   x       -       http://api.nextbike.net/maps/nextbike-official.xml?city=14
 NextBike - Stat.Bike  -       -       http://api.nextbike.net/maps/nextbike-official.xml?city=14
 Mobike   - Positions  -       -       https://github.com/ubahnverleih/WoBike/blob/master/Mobike.md
