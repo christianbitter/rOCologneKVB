@@ -1,6 +1,6 @@
 traffic <- function(){
   url <- "https://www.stadt-koeln.de/externe-dienste/open-data/traffic.php";
-  json_content <- base_request(url = url);
+  json_content <- base_request(url = url, rq_type = "json");
   epsg_code    <- json_content$spatialReference$wkid;
   data_df <- json_content$features;
   data_df <- rOCologneKVB::extract_prop(data_df, properties_attrib_name = "attributes");
@@ -29,7 +29,7 @@ traffic <- function(){
 #'@export
 car_park <- function(as_spatial = T){
   url <- "https://www.stadt-koeln.de/externe-dienste/open-data/parking-ts.php";
-  json_content <- base_request(url = url);
+  json_content <- base_request(url = url, rq_type = "json");
   epsg_code    <- json_content$spatialReference$wkid;
   data_df <- json_content$features;
   data_df <- rOCologneKVB::extract_geom(data_df, pull_from_geometry = F);

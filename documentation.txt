@@ -17,3 +17,7 @@ NextBike - Position   x       -       http://api.nextbike.net/maps/nextbike-live
 NextBike - Stations   x       -       http://api.nextbike.net/maps/nextbike-official.xml?city=14
 NextBike - Stat.Bike  -       -       http://api.nextbike.net/maps/nextbike-official.xml?city=14
 Mobike   - Positions  -       -       https://github.com/ubahnverleih/WoBike/blob/master/Mobike.md
+Parking Meter         x       -       https://www.offenedaten-koeln.de/api/action/datastore/search.json?resource_id=83d7e939-1a5e-40b9-928c-6734c65c524b
+school                x       -       https://geoportal.stadt-koeln.de/arcgis/rest/services/Stadtplanthemen/MapServer/6/query?text=&geometry=&geometryType=esriGeometryPoint&inSR=&spatialRel=esriSpatialRelIntersects&relationParam=&objectIds=&where=objectid+is+not+null&time=&returnCountOnly=false&returnIdsOnly=false&returnGeometry=true&maxAllowableOffset=&outSR=4326&outFields=*&f=json
+
+child care            x       -       https://geoportal.stadt-koeln.de/arcgis/rest/services/Stadtplanthemen/MapServer/9/query?geometry=&geometryType=esriGeometryPoint&inSR=&spatialRel=esriSpatialRelIntersects&relationParam=&objectIds=&where=objectid%20is%20not%20null&time=&returnCountOnly=false&returnIdsOnly=false&returnGeometry=true&maxAllowableOffset=&outSR=4326&outFields=%2A&f=json

@@ -86,7 +86,7 @@ bike_position <- function(as_spatial = T) {
 
   .data   <- data_df;
   if (as_spatial) {
-    data_sf  <- sf::st_as_sf(data_df, coords = c("lat", "lng"))
+    data_sf  <- sf::st_as_sf(.data, coords = c("lat", "lng"))
     sf::st_crs(data_sf) <- 4326;
     .data <- sf::st_transform(data_sf, crs = 4326);
   }
@@ -131,7 +131,7 @@ bike_station <- function(as_spatial = T) {
 
   .data   <- data_df;
   if (as_spatial) {
-    data_sf  <- sf::st_as_sf(data_df, coords = c("lat", "lng"))
+    data_sf  <- sf::st_as_sf(.data, coords = c("lat", "lng"))
     sf::st_crs(data_sf) <- epsg_code;
     .data <- sf::st_transform(data_sf, crs = 4326);
   }

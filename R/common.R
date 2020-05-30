@@ -47,9 +47,19 @@ extract_geom <- function(data_df, pull_from_geometry = T, geom_type = "point") {
     if (!("geometry" %in% names(data_df))) stop("no geometry attribute in data");
 
     if (geom_type == "point") {
-      coords   <- data_df$geometry$coordinates;
-      coords   <- unlist(coords);
-      coords_m <- matrix(data = coords, ncol = 2, byrow = T);
+      coords_m <- NULL;
+
+      n_geometry <- names(data_df$geometry);
+      if ("coordinates" %in% n_geometry) {
+        coords   <- data_df$geometry$coordinates;
+        coords   <- unlist(coords);
+        coords_m <- matrix(data = coords, ncol = 2, byrow = T);
+      } else if ("x" %in% n_geometry && "y" %in% n_geometry) {
+        coords_m <- as.matrix(data_df$geometry);
+      } else {
+        stop("Failed to extract coordinates");
+      }
+
       data_df$x <- coords_m[, 1];
       data_df$y <- coords_m[, 2];
       data_df$geom_type <- data_df$geometry$type;
